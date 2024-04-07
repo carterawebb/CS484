@@ -6,6 +6,22 @@ TagManager:
   tags:
   - Left Hand
   - Right Hand
+  - Pineapple
+  - SPineapple
+  - Bacon
+  - SBacon
+  - Basil
+  - SBasil
+  - Cheese
+  - SCheese
+  - Ham
+  - SHam
+  - Pepporoni
+  - SPepporoni
+  - Dough
+  - SDough
+  - Sauce
+  - SSauce
   layers:
   - Default
   - TransparentFX
