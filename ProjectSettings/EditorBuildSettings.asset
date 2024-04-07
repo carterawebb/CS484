@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 96c6f85abe42508478a076d3b2528224
+  - enabled: 1
+    path: Assets/Scenes/Pizza.unity
+    guid: cd42cb684742a8641ae5612279a3b937
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 832dd2fe8c1b22b44858305e7bad143a,
       type: 2}
