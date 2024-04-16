@@ -74,6 +74,6 @@ public class PizzaManager : MonoBehaviour {
         }
 
         // delete the object (it just got duplicated onto the pizza)
-        dropped.Destroy();
+        Destroy(dropped);
     }
 }

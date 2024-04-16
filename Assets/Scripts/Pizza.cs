@@ -14,7 +14,7 @@ public class Pizza : MonoBehaviour
             GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
             obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
             // apply gravity
-            obj.GetComponent<RigidBody>().useGravity = true;
+            obj.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
@@ -24,7 +24,7 @@ public class Pizza : MonoBehaviour
         GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
         obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
         // apply gravity
-        obj.GetComponent<RigidBody>().useGravity = true;
+        obj.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public bool CorrectToppingsAndNumber(Pizza pizza)
