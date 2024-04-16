@@ -12,7 +12,9 @@ public class Pizza : MonoBehaviour
         foreach (Topping topping in toppings)
         {
             GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
-            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z); // TODO: just apply gravity
+            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
+            // apply gravity
+            obj.GetComponent<RigidBody>().useGravity = true;
         }
     }
 
@@ -20,7 +22,9 @@ public class Pizza : MonoBehaviour
     {
         toppings.Add(topping);
         GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
-        obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z); // TODO: just apply gravity
+        obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
+        // apply gravity
+        obj.GetComponent<RigidBody>().useGravity = true;
     }
 
     public bool CorrectToppingsAndNumber(Pizza pizza)

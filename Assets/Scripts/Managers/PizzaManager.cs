@@ -19,11 +19,11 @@ public class PizzaManager : MonoBehaviour {
     /// will be associated with a simplified game object that will be placed on the pizza.
     /// </summary>
     
-    // An array of tuples of game objects and their associated simplified game object
-
 
     [SerializeField] private Pizza pizza;
     [SerializeField] private Pizza targetPizza;
+
+    [SerializeField] private float toppingDistanceThreshold = 1.0f;
 
     private void Awake()
     {
@@ -45,6 +45,19 @@ public class PizzaManager : MonoBehaviour {
         return pizza.CorrectToppings(targetPizza);
     }
 
+    public void SomethingGrabbed(GameObject grabbed)
+    {
+        Topping topping = grabbed.GetComponentInChildren<Topping>();
+        if (topping == null)
+        {
+            Debug.Log("Grabbed something that was not a topping");
+            return;
+        }
+
+        // duplicate the ingredient, leave one in the old position
+        Instantiate(grabbed);
+    }
+
     public void SomethingDropped(GameObject dropped)
     {
         Topping topping = dropped.GetComponentInChildren<Topping>();
@@ -54,8 +67,13 @@ public class PizzaManager : MonoBehaviour {
             return;
         }
 
-        // TODO: check position (near enough to be considered dropped onto the pizza)
+        // check position (near enough to be considered dropped onto the pizza)
+        if (Vector3.Distance(dropped.transform.position, pizza.transform.position) <= toppingDistanceThreshold)
+        {
+            pizza.AddTopping(topping);
+        }
 
-        pizza.AddTopping(topping);
+        // delete the object (it just got duplicated onto the pizza)
+        dropped.Destroy();
     }
 }
