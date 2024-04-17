@@ -5451,6 +5451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizza: {fileID: 1279723875}
   targetPizza: {fileID: 1016886150}
+  toppingDistanceThreshold: 1
 --- !u!4 &1428832437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8601544155671125429, guid: 53b67c2da02dc75428a45c95c376208b,
@@ -9985,6 +9986,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 912085361}
     m_Modifications:
+    - target: {fileID: -3239620596373356967, guid: 53b67c2da02dc75428a45c95c376208b,
+        type: 3}
+      propertyPath: m_Height
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8601544155671125429, guid: 53b67c2da02dc75428a45c95c376208b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -47,20 +47,22 @@ public class PizzaManager : MonoBehaviour {
 
     public void SomethingGrabbed(GameObject grabbed)
     {
-        Topping topping = grabbed.GetComponentInChildren<Topping>();
+        grabbed.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        Topping topping = grabbed.GetComponent<Topping>();
         if (topping == null)
         {
             Debug.Log("Grabbed something that was not a topping");
             return;
         }
-
+        
         // duplicate the ingredient, leave one in the old position
-        Instantiate(grabbed);
+        GameObject duplicate = Instantiate(grabbed);
+        duplicate.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
     }
 
     public void SomethingDropped(GameObject dropped)
     {
-        Topping topping = dropped.GetComponentInChildren<Topping>();
+        Topping topping = dropped.GetComponent<Topping>();
         if (topping == null)
         {
             Debug.Log("Dropped something that was not a topping");
