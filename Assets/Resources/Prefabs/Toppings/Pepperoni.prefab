@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8336530640541439284}
   - component: {fileID: 2541254808225576058}
   - component: {fileID: 7708981950231172193}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Pepperoni
   m_TagString: Pepporoni
   m_Icon: {fileID: 0}
