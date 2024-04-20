@@ -9,12 +9,14 @@ public class Pizza : MonoBehaviour
 
     public void Start()
     {
+        float offset = 0.05f;
         foreach (Topping topping in toppings)
         {
             GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
-            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
+            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + offset, obj.transform.position.z);
             // apply gravity
             obj.GetComponent<Rigidbody>().useGravity = true;
+            offset += 0.05f;
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1319702564798073969}
   - component: {fileID: 7202504957983253870}
   - component: {fileID: 6909051034800487238}
-  - component: {fileID: 4100308577757299978}
+  - component: {fileID: 5937946331630451453}
   m_Layer: 0
   m_Name: SimplifiedCheese
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4100308577757299978
-CapsuleCollider:
+--- !u!65 &5937946331630451453
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,11 +102,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000055879354, y: 0, z: -0.00000008940697}
 --- !u!1001 &436142224609328966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,17 +131,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.027
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5592062365705602802}
   - component: {fileID: 8381569525136803898}
   - component: {fileID: 4971101708764342737}
-  - component: {fileID: 8870800078544452589}
+  - component: {fileID: 1251400946885717962}
   m_Layer: 0
   m_Name: SimplifiedHam
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8870800078544452589
-CapsuleCollider:
+--- !u!65 &1251400946885717962
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &2363339312392098748
 PrefabInstance:
@@ -118,17 +116,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3235a41017075cd46b01466e0a182063,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3235a41017075cd46b01466e0a182063,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9300897
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3235a41017075cd46b01466e0a182063,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.2599077
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3235a41017075cd46b01466e0a182063,
         type: 3}

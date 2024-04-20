@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4414262051886069287, guid: 88a191c7554553e4bbef947226cf8804,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 88a191c7554553e4bbef947226cf8804,
         type: 3}
       propertyPath: m_Name
@@ -80,8 +85,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 88a191c7554553e4bbef947226cf8804,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88a191c7554553e4bbef947226cf8804,
+        type: 3}
       propertyPath: m_TagString
       value: Sauce
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109843832602689693, guid: 88a191c7554553e4bbef947226cf8804,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3826243528184748876, guid: 88a191c7554553e4bbef947226cf8804,
         type: 3}
@@ -103,11 +118,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88a191c7554553e4bbef947226cf8804,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8130610063558839552}
+      addedObject: {fileID: 2143296792773226439}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88a191c7554553e4bbef947226cf8804,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8377474643820764771}
+      addedObject: {fileID: 6301507936413093206}
   m_SourcePrefab: {fileID: 100100000, guid: 88a191c7554553e4bbef947226cf8804, type: 3}
 --- !u!1 &95761276495563864 stripped
 GameObject:
@@ -134,8 +149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.1134663, y: 2.279178, z: 2.19635}
+  m_Center: {x: 0.07172108, y: -0.17698228, z: 0.99817276}
 --- !u!54 &6924091306733886420
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,12 +173,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8130610063558839552
+--- !u!114 &2143296792773226439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +187,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 95761276495563864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 07dbc948c768865468f0abf010c64321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6301507936413093206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95761276495563864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b443be9bf8bb43966a72753eb019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -181,7 +208,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 12
+    m_Bits: 4
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -267,7 +294,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -315,18 +342,3 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-8377474643820764771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95761276495563864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3262562a177a426479bda40068a47236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Sauce
-  simplifiedTopping: {fileID: 733024979686935123, guid: 2e74f3ad137dbf245885f00a8d612cc9,
-    type: 3}

@@ -85,6 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1772b65aa713c2642bc265fd99b6960f,
+        type: 3}
       propertyPath: m_TagString
       value: Cheese
       objectReference: {fileID: 0}
@@ -97,6 +102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1772b65aa713c2642bc265fd99b6960f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -113,11 +123,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1418409332070358889}
+      addedObject: {fileID: 2302030371081666037}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1772b65aa713c2642bc265fd99b6960f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -679819380994256713}
+      addedObject: {fileID: 4371353166532592829}
   m_SourcePrefab: {fileID: 100100000, guid: 1772b65aa713c2642bc265fd99b6960f, type: 3}
 --- !u!1 &8473619257819534464 stripped
 GameObject:
@@ -144,8 +154,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7716048, y: 0.5950319, z: 1.0172176}
+  m_Center: {x: -0.3567735, y: 0.021011177, z: -0.14270382}
 --- !u!54 &2305008646544715557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,12 +178,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1418409332070358889
+--- !u!114 &2302030371081666037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +192,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8473619257819534464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: f3b29d7b19640404c91521ec62107714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4371353166532592829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473619257819534464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b443be9bf8bb43966a72753eb019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -191,7 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 12
+    m_Bits: 4
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -277,7 +299,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -325,18 +347,3 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-679819380994256713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8473619257819534464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3262562a177a426479bda40068a47236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Cheese
-  simplifiedTopping: {fileID: 778019766549742103, guid: fb0862eca249ed545ba6bb427eab4454,
-    type: 3}

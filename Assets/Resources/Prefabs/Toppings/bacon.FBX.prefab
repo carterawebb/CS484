@@ -85,6 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8feecf65ff8c3c74096f8d87d17f79e9,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8feecf65ff8c3c74096f8d87d17f79e9,
+        type: 3}
       propertyPath: m_TagString
       value: Bacon
       objectReference: {fileID: 0}
@@ -103,11 +108,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8feecf65ff8c3c74096f8d87d17f79e9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 762853121081563109}
+      addedObject: {fileID: 8460781651056067594}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8feecf65ff8c3c74096f8d87d17f79e9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1516213900278692241}
+      addedObject: {fileID: 3636873971413952232}
   m_SourcePrefab: {fileID: 100100000, guid: 8feecf65ff8c3c74096f8d87d17f79e9, type: 3}
 --- !u!1 &4443386951260003378 stripped
 GameObject:
@@ -134,8 +139,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.4668999, y: 1.9198695, z: 0.0894391}
+  m_Center: {x: -0.012391582, y: -0.10695092, z: 0.006926682}
 --- !u!54 &964239769566771693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,12 +163,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &762853121081563109
+--- !u!114 &8460781651056067594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +177,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4443386951260003378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ecf627b3e114e41b0e34a273c50959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3636873971413952232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443386951260003378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b443be9bf8bb43966a72753eb019d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -181,7 +198,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 12
+    m_Bits: 4
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -267,7 +284,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -315,18 +332,3 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-1516213900278692241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4443386951260003378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3262562a177a426479bda40068a47236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Bacon
-  simplifiedTopping: {fileID: 1669573897214960119, guid: 6e0992a45d01a1748a88598cc3d54463,
-    type: 3}

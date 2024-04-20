@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1099557473320852246}
   - component: {fileID: 3695416306658070175}
   - component: {fileID: 2529262834849084091}
-  - component: {fileID: 4320929273094625552}
+  - component: {fileID: 4096036557227481172}
   m_Layer: 0
   m_Name: SimplifiedPineapple
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4320929273094625552
-CapsuleCollider:
+--- !u!65 &4096036557227481172
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,11 +102,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: -0.00000047683716, z: -0.00000008940697}
 --- !u!1001 &4101148058820041442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,17 +131,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b159511da51a23544b1689f4e4f2434f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.448
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b159511da51a23544b1689f4e4f2434f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0050898
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b159511da51a23544b1689f4e4f2434f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.0639076
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b159511da51a23544b1689f4e4f2434f,
         type: 3}
