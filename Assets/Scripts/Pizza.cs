@@ -53,6 +53,10 @@ public class Pizza : MonoBehaviour
 
     public bool CorrectToppings(Pizza pizza)
     {
+        // TODO: (mary) fix this function?
+        // how should we compare pizzas?
+        // the current logic might not work because contains might not use == (see Topping.cs)
+
         foreach (Topping topping in toppings)
         {
             if (!pizza.toppings.Contains(topping))

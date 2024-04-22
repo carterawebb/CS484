@@ -5263,6 +5263,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizza: {fileID: 1279723875}
   targetPizza: {fileID: 1016886150}
+  dough: {fileID: 7248340828740963730, guid: 7d850bb8ecef3c945b64dd6804491d05, type: 3}
+  pepperoni: {fileID: 8698342504285376292, guid: 70e7aea019cc4d1418c9c4393e271e63,
+    type: 3}
+  sauce: {fileID: 95761276495563864, guid: 49a83def71abbce43a503771d69d56c8, type: 3}
+  pineapple: {fileID: 679153055841805149, guid: 7f660a717c82ac14ab700b44850f72d4,
+    type: 3}
+  basil: {fileID: 6082628658459144740, guid: 28118e78d133d2541a3d8900c1c47eab, type: 3}
+  ham: {fileID: 8730572365222174067, guid: 84e92b26355c3334d9a2a8e149fb35f9, type: 3}
+  bacon: {fileID: 4443386951260003378, guid: 27510238b942d784fa4a5da3634e9531, type: 3}
+  cheese: {fileID: 8473619257819534464, guid: 936d4b0171a0f514f86964c9079b6e29, type: 3}
   toppingDistanceThreshold: 1
 --- !u!4 &1428832437 stripped
 Transform:
@@ -9817,7 +9827,7 @@ PrefabInstance:
     - target: {fileID: 7248340828740963730, guid: 7d850bb8ecef3c945b64dd6804491d05,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8060483700105713448, guid: 7d850bb8ecef3c945b64dd6804491d05,
         type: 3}
@@ -9869,7 +9879,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5901277187833757038, guid: 7d850bb8ecef3c945b64dd6804491d05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
