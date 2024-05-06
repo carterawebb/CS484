@@ -6,6 +6,7 @@ public class Pizza : MonoBehaviour
 {
     [SerializeField] private float pizzaToppingOffset = 0.05f;
     public List<Topping> toppings = new List<Topping>();
+    public bool ready = false;
 
     public void Start()
     {
@@ -53,20 +54,38 @@ public class Pizza : MonoBehaviour
 
     public bool CorrectToppings(Pizza pizza)
     {
-        // TODO: (mary) fix this function?
-        // how should we compare pizzas?
-        // the current logic might not work because contains might not use == (see Topping.cs)
+        if (!pizza.ready)
+        {
+            return false;
+        }
 
         foreach (Topping topping in toppings)
         {
-            if (!pizza.toppings.Contains(topping))
+            bool found = false;
+            foreach (Topping topping2 in pizza.toppings)
+            {
+                if (topping.GetName() == topping2.GetName())
+                {
+                    found = true;
+                }
+            }
+            if (!found)
             {
                 return false;
             }
         }
+
         foreach (Topping topping in pizza.toppings)
         {
-            if (toppings.Contains(topping))
+            bool found = false;
+            foreach (Topping topping2 in toppings)
+            {
+                if (topping.GetName() == topping2.GetName())
+                {
+                    found = true;
+                }
+            }
+            if (!found)
             {
                 return false;
             }

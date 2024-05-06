@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class PizzaManager : MonoBehaviour {
     /// <summary>
@@ -60,15 +59,6 @@ public class PizzaManager : MonoBehaviour {
         }
         targetPizza.toppings.Clear();
 
-
-        // TODO: (mary) logic here for random toppings
-        // use AddTopping as shown below (76-78).
-        // put yield return new WaitForSeconds(0.5f);
-        // in between AddTopping calls to allow the ingredients to fall properly
-
-
-        // for now hard coded
-
         // NEED THIS ON START
         //targetPizza.toppings.Add(dough.GetComponent<Dough>());
         //targetPizza.toppings.Add(sauce.GetComponent<Sauce>());
@@ -79,12 +69,46 @@ public class PizzaManager : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         targetPizza.AddTopping(sauce.GetComponent<Sauce>());
         yield return new WaitForSeconds(0.5f);
-        targetPizza.AddTopping(pepperoni.GetComponent<Pepperoni>());
+
+        // 50/50 for adding cheese
+        if (Random.Range(0, 2) == 1)
+        {
+            targetPizza.AddTopping(cheese.GetComponent<Cheese>());
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        int numToppingsToAdd = Random.Range(1, 2);
+        for (int i = 0; i < numToppingsToAdd; i++)
+        {
+            AddRandomToppingToTargetPizza();
+            yield return new WaitForSeconds(0.5f);
+        }
+        targetPizza.ready = true;
+    }
+
+    private void AddRandomToppingToTargetPizza()
+    {
+        int rand = Random.Range(0, 3);
+        switch (rand)
+        {
+            case 0:
+                targetPizza.AddTopping(pepperoni.GetComponent<Pepperoni>());
+                break;
+            case 1:
+                targetPizza.AddTopping(ham.GetComponent<Ham>());
+                break;
+            case 2:
+                targetPizza.AddTopping(bacon.GetComponent<Bacon>());
+                break;
+            //case 3:
+                // may want to disable if basil doesn't work
+                //targetPizza.AddTopping(basil.GetComponent<Basil>());
+                //break;
+        }
     }
 
     private bool PizzaDone()
     {
-        // TODO: (mary) when is a pizza done? Right now this is called every frame
         // CorrectToppings does not work
         return pizza.CorrectToppings(targetPizza);
     }
