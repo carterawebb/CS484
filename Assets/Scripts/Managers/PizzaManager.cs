@@ -88,7 +88,7 @@ public class PizzaManager : MonoBehaviour {
 
     private void AddRandomToppingToTargetPizza()
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 4);
         switch (rand)
         {
             case 0:
@@ -99,6 +99,9 @@ public class PizzaManager : MonoBehaviour {
                 break;
             case 2:
                 targetPizza.AddTopping(bacon.GetComponent<Bacon>());
+                break;
+            case 3:
+                targetPizza.AddTopping(pineapple.GetComponent<Pepperoni>());
                 break;
             //case 3:
                 // may want to disable if basil doesn't work
