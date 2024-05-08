@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PizzaManager : MonoBehaviour {
     /// <summary>
@@ -19,8 +20,8 @@ public class PizzaManager : MonoBehaviour {
     /// </summary>
     
 
-    [SerializeField] private Pizza pizza;
-    [SerializeField] private Pizza targetPizza;
+    [SerializeField] public Pizza pizza;
+    [SerializeField] public Pizza targetPizza;
 
     [SerializeField] private GameObject dough;
     [SerializeField] private GameObject pepperoni;
@@ -30,22 +31,37 @@ public class PizzaManager : MonoBehaviour {
     [SerializeField] private GameObject ham;
     [SerializeField] private GameObject bacon;
     [SerializeField] private GameObject cheese;
+
+    [SerializeField] private TextMeshPro targetRecipeText;
     
+    public GameObject[] toppingsOnPizza;
 
     [SerializeField] private float toppingDistanceThreshold = 1.0f;
 
     private void Awake()
     {
+        toppingsOnPizza = new GameObject[5];
+
+        targetRecipeText.text = "Recipe:\n";
+
+        StartCoroutine(GenerateNewUserPizza());
+
         // overrides the serialized preset pizza
         StartCoroutine(GenerateNewTargetPizza());
     }
 
-    private void Update()
+    private IEnumerator GenerateNewUserPizza()
     {
-        if (targetPizza && PizzaDone())
+        yield return new WaitForSeconds(0.1f);
+
+        // remove old pizza toppings
+        foreach (Transform child in pizza.transform)
         {
-            Debug.Log("Pizza done");
+            Destroy(child.gameObject);
         }
+        pizza.toppings.Clear();
+
+        pizza.AddTopping(dough.GetComponent<Dough>());
     }
 
     private IEnumerator GenerateNewTargetPizza()
@@ -69,26 +85,50 @@ public class PizzaManager : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         targetPizza.AddTopping(sauce.GetComponent<Sauce>());
         yield return new WaitForSeconds(0.5f);
+        int toppingCounter = 0;
+        toppingsOnPizza[toppingCounter] = dough;
+        toppingCounter++;
+
+        targetRecipeText.text += "Sauce\n";
 
         // 50/50 for adding cheese
         if (Random.Range(0, 2) == 1)
         {
             targetPizza.AddTopping(cheese.GetComponent<Cheese>());
             yield return new WaitForSeconds(0.5f);
+
+            // add to toppings list
+            toppingsOnPizza[toppingCounter] = cheese;
+            toppingCounter++;
+
+            targetRecipeText.text += "Cheese\n";
         }
 
-        int numToppingsToAdd = Random.Range(1, 2);
+        int numToppingsToAdd = Random.Range(2, 3);
         for (int i = 0; i < numToppingsToAdd; i++)
         {
             AddRandomToppingToTargetPizza();
             yield return new WaitForSeconds(0.5f);
+
+            toppingsOnPizza[toppingCounter] = targetPizza.toppings[targetPizza.toppings.Count - 1].gameObject;
+            toppingCounter++;
+
+            targetRecipeText.text += GetToppingName(targetPizza.toppings[targetPizza.toppings.Count - 1]) + "\n";
         }
+
         targetPizza.ready = true;
     }
 
     private void AddRandomToppingToTargetPizza()
     {
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 3);
+
+        // if we alreadyh have this topping, try again
+        while (targetPizza.toppings.Exists(t => t.name == rand.ToString()))
+        {
+            rand = Random.Range(0, 3);
+        }
+
         switch (rand)
         {
             case 0:
@@ -101,12 +141,44 @@ public class PizzaManager : MonoBehaviour {
                 targetPizza.AddTopping(bacon.GetComponent<Bacon>());
                 break;
             case 3:
-                targetPizza.AddTopping(pineapple.GetComponent<Pepperoni>());
+                targetPizza.AddTopping(pineapple.GetComponent<Pineapple>());
                 break;
-            //case 3:
-                // may want to disable if basil doesn't work
-                //targetPizza.AddTopping(basil.GetComponent<Basil>());
-                //break;
+        }
+    }
+
+    private string GetToppingName(Topping topping)
+    {
+        if (topping.GetComponent<Pepperoni>() != null)
+        {
+            return "Pepperoni";
+        }
+        else if (topping.GetComponent<Ham>() != null)
+        {
+            return "Ham";
+        }
+        else if (topping.GetComponent<Bacon>() != null)
+        {
+            return "Bacon";
+        }
+        else if (topping.GetComponent<Pineapple>() != null)
+        {
+            return "Pineapple";
+        }
+        else if (topping.GetComponent<Basil>() != null)
+        {
+            return "Basil";
+        }
+        else if (topping.GetComponent<Cheese>() != null)
+        {
+            return "Cheese";
+        }
+        else if (topping.GetComponent<Sauce>() != null)
+        {
+            return "Sauce";
+        }
+        else
+        {
+            return "Unknown";
         }
     }
 
@@ -148,5 +220,32 @@ public class PizzaManager : MonoBehaviour {
 
         // delete the object (it just got duplicated onto the pizza)
         Destroy(dropped);
+    }
+
+    public void NewPizza()
+    {
+        // remove old pizza toppings that arent the dough
+        foreach (Transform child in pizza.transform)
+        {
+            if (child.gameObject.GetComponent<Dough>() == null)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        // remove old toppings that arent the dough
+        for (int i = 0; i < toppingsOnPizza.Length; i++)
+        {
+            if (toppingsOnPizza[i] != null && toppingsOnPizza[i].GetComponent<Dough>() == null)
+            {
+                Destroy(toppingsOnPizza[i]);
+            }
+        }
+
+        // generate new user pizza
+        StartCoroutine(GenerateNewUserPizza());
+
+        // generate new target pizza
+        StartCoroutine(GenerateNewTargetPizza());
     }
 }
