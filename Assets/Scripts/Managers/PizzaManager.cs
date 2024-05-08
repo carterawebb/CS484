@@ -242,6 +242,9 @@ public class PizzaManager : MonoBehaviour {
             }
         }
 
+        // Reset recipe text
+        targetRecipeText.text = "Recipe:\n";
+
         // generate new user pizza
         StartCoroutine(GenerateNewUserPizza());
 
