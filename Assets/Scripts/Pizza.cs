@@ -15,6 +15,7 @@ public class Pizza : MonoBehaviour
         {
             GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
             obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + offset, obj.transform.position.z);
+            obj.transform.rotation *= Quaternion.Euler(Vector3.up * Random.Range(0, 360));
             // apply gravity
             obj.GetComponent<Rigidbody>().useGravity = true;
             offset += 0.05f;
@@ -26,6 +27,7 @@ public class Pizza : MonoBehaviour
         toppings.Add(topping);
         GameObject obj = Instantiate(topping.GetSimplifiedMapping(), transform);
         obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pizzaToppingOffset, obj.transform.position.z);
+        obj.transform.rotation *= Quaternion.Euler(Vector3.up * Random.Range(0, 360));
         // apply gravity
         obj.GetComponent<Rigidbody>().useGravity = true;
     }

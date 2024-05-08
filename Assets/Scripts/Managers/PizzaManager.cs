@@ -34,14 +34,10 @@ public class PizzaManager : MonoBehaviour {
 
     [SerializeField] private TextMeshPro targetRecipeText;
     
-    public GameObject[] toppingsOnPizza;
-
     [SerializeField] private float toppingDistanceThreshold = 1.0f;
 
     private void Awake()
     {
-        toppingsOnPizza = new GameObject[5];
-
         targetRecipeText.text = "Recipe:\n";
 
         StartCoroutine(GenerateNewUserPizza());
@@ -86,7 +82,6 @@ public class PizzaManager : MonoBehaviour {
         targetPizza.AddTopping(sauce.GetComponent<Sauce>());
         yield return new WaitForSeconds(0.5f);
         int toppingCounter = 0;
-        toppingsOnPizza[toppingCounter] = dough;
         toppingCounter++;
 
         targetRecipeText.text += "Sauce\n";
@@ -97,10 +92,6 @@ public class PizzaManager : MonoBehaviour {
             targetPizza.AddTopping(cheese.GetComponent<Cheese>());
             yield return new WaitForSeconds(0.5f);
 
-            // add to toppings list
-            toppingsOnPizza[toppingCounter] = cheese;
-            toppingCounter++;
-
             targetRecipeText.text += "Cheese\n";
         }
 
@@ -110,9 +101,6 @@ public class PizzaManager : MonoBehaviour {
             AddRandomToppingToTargetPizza();
             yield return new WaitForSeconds(0.5f);
 
-            toppingsOnPizza[toppingCounter] = targetPizza.toppings[targetPizza.toppings.Count - 1].gameObject;
-            toppingCounter++;
-
             targetRecipeText.text += GetToppingName(targetPizza.toppings[targetPizza.toppings.Count - 1]) + "\n";
         }
 
@@ -121,13 +109,7 @@ public class PizzaManager : MonoBehaviour {
 
     private void AddRandomToppingToTargetPizza()
     {
-        int rand = Random.Range(0, 3);
-
-        // if we alreadyh have this topping, try again
-        while (targetPizza.toppings.Exists(t => t.name == rand.ToString()))
-        {
-            rand = Random.Range(0, 3);
-        }
+        int rand = Random.Range(0, 4);
 
         switch (rand)
         {
@@ -184,7 +166,6 @@ public class PizzaManager : MonoBehaviour {
 
     private bool PizzaDone()
     {
-        // CorrectToppings does not work
         return pizza.CorrectToppings(targetPizza);
     }
 
@@ -231,27 +212,6 @@ public class PizzaManager : MonoBehaviour {
             {
                 Destroy(child.gameObject);
             }
-        }
-
-        // remove old toppings that arent the dough
-        for (int i = 0; i < toppingsOnPizza.Length; i++)
-        {
-            if (toppingsOnPizza[i] != null && toppingsOnPizza[i].GetComponent<Dough>() == null)
-            {
-                Destroy(toppingsOnPizza[i]);
-            }
-        }
-
-        // remove old target pizza toppings
-        foreach (Transform child in targetPizza.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // remove old target toppings
-        for (int i = 0; i < targetPizza.toppings.Count; i++)
-        {
-            Destroy(targetPizza.toppings[i].gameObject);
         }
 
         // Reset recipe text

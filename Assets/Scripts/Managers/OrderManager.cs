@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public class OrderManager : MonoBehaviour{
@@ -14,7 +15,7 @@ public class OrderManager : MonoBehaviour{
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI messageText;
 
-    public int score = 100;
+    public int score;
 
     public void Awake() {
         finishPizzaMenu.SetActive(true);
@@ -22,39 +23,77 @@ public class OrderManager : MonoBehaviour{
     }
 
     public void EvaluatePizza() {
-        if (pizzaManager.pizza.toppings.Count <= 2) {
+        if (pizzaManager.pizza.toppings.Count <= 1) {
             StartCoroutine(ShowMessage("You need to add toppings to the pizza!"));
             return;
         }
 
-        if (pizzaManager.targetPizza.ready && pizzaManager.pizza.toppings.Count > 2) {
+        if (pizzaManager.targetPizza.ready)
+        {
             // Convert the list of toppings to an array
             yourToppings = pizzaManager.pizza.toppings.ToArray();
             targetToppings = pizzaManager.targetPizza.toppings.ToArray();
 
-            // Check if the toppings are correct
-            for (int i = 0; i < targetToppings.Length; i++) {
-                if (yourToppings[i].GetName() != targetToppings[i].GetName()) {
+            score = 100;
+            int numWrong = yourToppings.Length;
+            if (yourToppings.Length == targetToppings.Length)
+            {
+                // given 50 points for getting the correct number of ingredients
+                score += 50;
+            }
+
+            for (int i = 0; i < targetToppings.Length; i++)
+            {
+                bool found = false;
+                for (int j = 0; j < yourToppings.Length; j++)
+                {
+                    if (targetToppings[i].GetName() == yourToppings[j].GetName())
+                    {
+                        found = true;
+                    }
+                }
+                if (!found)
+                {
+                    // you lose 10 for each ingredient you added that wasn't in the pizza
                     score -= 10;
                 }
+            }
 
-                if (score <= 0) {
-                    score = 0;
-                    break;
+            List<int> skipIndecies = new List<int>();
+            for (int i = 0; i < yourToppings.Length; i++)
+            {
+                bool found = false;
+                for (int j = 0; j < targetToppings.Length; j++)
+                {
+                    if (skipIndecies.Contains(j))
+                    {
+                        continue;
+                    }
+
+                    if (yourToppings[i].GetName() == targetToppings[j].GetName())
+                    {
+                        found = true;
+                        skipIndecies.Add(j);
+                    }
+                }
+                if (!found)
+                {
+                    // you lose 10 for each ingredient in the pizza you didn't add
+                    score -= 10;
                 }
             }
 
-            // Check if the number of toppings is correct
-            if (yourToppings.Length != targetToppings.Length) {
-                score -= 10;
+            // you get 10 points for every ingredient in the correct position
+            for (int i = 0; i < Math.Min(targetToppings.Length, yourToppings.Length); i++)
+            {
+                if (yourToppings[i].GetName() == targetToppings[i].GetName())
+                {
+                    score += 10;
+                }
             }
 
-            // For each extra topping, subtract 5 points
-            if (yourToppings.Length > targetToppings.Length) {
-                score -= 5 * (yourToppings.Length - targetToppings.Length);
-            }
-
-            if (score <= 0) {
+            if (score < 0)
+            {
                 score = 0;
             }
 
@@ -74,7 +113,6 @@ public class OrderManager : MonoBehaviour{
     public void ResetPizza() {
         finishPizzaMenu.SetActive(true);
         endGameMenu.SetActive(false);
-        score = 100;
         pizzaManager.NewPizza();
     }
 }

@@ -3019,7 +3019,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This game was made by for CS 484 at UNR.
+  m_text: This game was made by Andrew Kalb, Carter Webb, Mary Cottier, and Nevada
+    Escapa for CS 484 at UNR.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b036e831c0c90547b32a8a896d80f79, type: 2}
   m_sharedMaterial: {fileID: 6988543560108305873, guid: cb4516ac98eb5854ea4d7a8f558eb4da,
