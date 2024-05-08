@@ -104,7 +104,7 @@ public class PizzaManager : MonoBehaviour {
             targetRecipeText.text += "Cheese\n";
         }
 
-        int numToppingsToAdd = Random.Range(2, 3);
+        int numToppingsToAdd = Random.Range(1, 3);
         for (int i = 0; i < numToppingsToAdd; i++)
         {
             AddRandomToppingToTargetPizza();
@@ -240,6 +240,18 @@ public class PizzaManager : MonoBehaviour {
             {
                 Destroy(toppingsOnPizza[i]);
             }
+        }
+
+        // remove old target pizza toppings
+        foreach (Transform child in targetPizza.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // remove old target toppings
+        for (int i = 0; i < targetPizza.toppings.Count; i++)
+        {
+            Destroy(targetPizza.toppings[i].gameObject);
         }
 
         // Reset recipe text
